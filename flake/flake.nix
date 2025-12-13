@@ -1,11 +1,10 @@
 {
-    descritpion = "Dumy to mimicate the Google Ads API"
-
-        inputs = {
-            nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-            flake-utils.url = "github:numtide/flake-utils";
-            essentials.url = "path:/mnt/hdmenezess42/GitProjects/flakeEssentials";
-        };
+    descritpion = "Dumy to mimicate the Google Ads API";
+    inputs = {
+        nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+        flake-utils.url = "github:numtide/flake-utils";
+        essentials.url = "path:/mnt/hdmenezess42/GitProjects/flakeEssentials";
+    };
     outputs = {self, nixpkgs, flake-utils, essentials}:
         flake-utils.lib.eachDefaultSystem(system:
                 let
@@ -18,11 +17,10 @@
                 buildInputs = with pkgs; [
                 (python313.withPackages (p:
                                          [
-                                         #faker
-                                         #pydantic
-                                         #pytest
-                                         #pytest-cov
-                                         #dataclasses-json
+                                         p.faker
+                                         p.pydantic
+                                         p.pytest
+                                         p.pytest-cov
                                          ]))
                 ] ++ baseShell.buildInputs;
 
@@ -30,8 +28,8 @@
                 doCheck = false;
 
                 shellHook = ''
-                echo "You can start build the Google Dumy API"
-                '';
+                    echo "You can start build the Google Dumy API"
+                    '';
                 };
                 });
 }
