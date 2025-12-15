@@ -30,6 +30,9 @@
                 shellHook = ''
                     echo "You can start build the Google Dumy API"
                     '';
+                shellAlias = ''
+                "p" = "pytest"
+                    '';
                 };
                 });
 }
