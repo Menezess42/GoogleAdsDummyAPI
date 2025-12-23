@@ -1,5 +1,5 @@
 {
-    description = "Dumy to mimicate the Google Ads API";
+    description = "Dummy to mimicate the Google Ads API";
     inputs = {
         nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
         flake-utils.url = "github:numtide/flake-utils";
@@ -26,7 +26,7 @@
                 in
                 {
                 devShell = pkgs.mkShell {
-                name = "GoogleAdsDumyAPI";
+                name = "GoogleAdsDummyAPI";
                 buildInputs = with pkgs; [
                 (python313.withPackages (p:
                                          [
@@ -41,7 +41,7 @@
                 dontUsePytestCheck = true;
                 doCheck = false;
                 shellHook = ''
-                    echo "You can start build the Google Dumy API"
+                    echo "You can start build the Google Dummy API"
                     '';
                 };
                 });

@@ -1,0 +1,68 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gad-api"
+version = "0.1.0"
+description = "Dummy API to mimicate the Google Ads API"
+readme = "README.md"
+requires-python = ">=3.13"
+license = {text = "MIT"}
+authors = [
+    {name = "Menezess42", email = "arielmenezess42@gmail.com"}
+]
+keywords = ["google-ads", "dummy", "api", "testing"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.13",
+]
+
+dependencies = [
+    "faker>=20.0.0",
+    "faker-commerce>=1.0.4",
+    "pydantic>=2.0.0",
+    "pandas>=2.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/Menezess42/GoogleAdsDummyAPI"
+Repository = "https://github.com/Menezess42/GoogleAdsDummyAPI"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["googleAdsDummy"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = [
+    "--cov=google_ads_dummy",
+    "--cov-report=term-missing",
+    "--cov-report=html",
+    "-v"
+]
+
+[tool.coverage.run]
+source = ["googleAdsDummy"]
+omit = ["*/tests/*", "*/test_*.py"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+]
